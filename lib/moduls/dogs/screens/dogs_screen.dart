@@ -17,6 +17,7 @@ class DogsScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.network(
               "",
