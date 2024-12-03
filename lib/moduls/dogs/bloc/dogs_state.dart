@@ -1,6 +1,5 @@
 part of 'dogs_bloc.dart';
 
-@immutable
 abstract class DogsState {}
 
 final class DogsInitialState extends DogsState {}
