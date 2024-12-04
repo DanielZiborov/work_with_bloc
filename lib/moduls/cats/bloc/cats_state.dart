@@ -7,9 +7,9 @@ final class CatsInitialState extends CatsState {}
 final class CatsLoadingState extends CatsState {}
 
 final class CatsSuccessState extends CatsState {
-  final CatsEntity catsEntity;
+  final CatsEntity data;
 
-  CatsSuccessState({required this.catsEntity});
+  CatsSuccessState({required this.data});
 }
 
 final class CatsErrorState extends CatsState {
