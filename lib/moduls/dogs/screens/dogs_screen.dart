@@ -39,8 +39,8 @@ class DogsScreen extends StatelessWidget {
                   case DogsErrorState():
                     return Text(state.errorText);
                   default:
+                    return const SizedBox();
                 }
-                return const SizedBox();
               },
             )
           ],
