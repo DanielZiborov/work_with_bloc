@@ -1,4 +1,5 @@
 part of 'cats_bloc.dart';
 
-@immutable
-sealed class CatsEvent {}
+abstract class CatsEvent {}
+
+class GetCatsImageEvent extends CatsEvent {}
