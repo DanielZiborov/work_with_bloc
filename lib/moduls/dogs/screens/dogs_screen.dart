@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:work_with_bloc/moduls/dogs/bloc/dogs_bloc.dart';
 
 class DogsScreen extends StatelessWidget {
   const DogsScreen({super.key});
@@ -7,7 +9,9 @@ class DogsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          context.read<DogsBloc>().add(GetDogsImageEvent());
+        },
         child: const Icon(Icons.refresh),
       ),
       appBar: AppBar(
@@ -19,10 +23,25 @@ class DogsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(
-              "",
-              errorBuilder: (context, error, stackTrace) =>
-                  const Icon(Icons.error),
+            BlocBuilder<DogsBloc, DogsState>(
+              builder: (context, state) {
+                switch (state) {
+                  case DogsLoadingState():
+                    return const CircularProgressIndicator();
+                  case DogsSuccessState():
+                    return Image.network(
+                      width: 300,
+                      height: 300,
+                      state.data.message,
+                      errorBuilder: (context, error, stackTrace) =>
+                          const Icon(Icons.error),
+                    );
+                  case DogsErrorState():
+                    return Text(state.errorText);
+                  default:
+                }
+                return const SizedBox();
+              },
             )
           ],
         ),
