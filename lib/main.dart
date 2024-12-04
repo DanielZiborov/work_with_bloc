@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:work_with_bloc/core/consts/app_consts.dart';
 import 'package:work_with_bloc/core/network/dio_settings.dart';
 import 'package:work_with_bloc/domain/repositories/domain_dogs_repository.dart';
 import 'package:work_with_bloc/domain/use_cases/get_dogs_use_case.dart';
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
             getDogsUseCase: context.read<GetDogsUseCase>(),
           ),
         ),
+
+        
       ],
       child: MultiBlocProvider(
         providers: [
@@ -38,10 +41,14 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ],
-        child: const MaterialApp(
+        child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          home: DogsScreen(),
+          initialRoute: AppConsts.initialRoute,
+          routes: {
+            AppConsts.initialRoute: (context) => const DogsScreen(),
+            AppConsts.catsRoute: (context) => const Placeholder(),
+          }
         ),
       ),
     );
