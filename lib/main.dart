@@ -7,6 +7,7 @@ import 'package:work_with_bloc/domain/repositories/domain_dogs_repository.dart';
 import 'package:work_with_bloc/domain/use_cases/get_cats_use_case.dart';
 import 'package:work_with_bloc/domain/use_cases/get_dogs_use_case.dart';
 import 'package:work_with_bloc/moduls/cats/bloc/cats_bloc.dart';
+import 'package:work_with_bloc/moduls/cats/screens/cats_screen.dart';
 import 'package:work_with_bloc/moduls/dogs/bloc/dogs_bloc.dart';
 import 'package:work_with_bloc/moduls/dogs/screens/dogs_screen.dart';
 
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
               repository: context.read<DomainCatsRepository>(),
             ),
           ),
-          
+
         ],
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
             initialRoute: AppConsts.initialRoute,
             routes: {
               AppConsts.initialRoute: (context) => const DogsScreen(),
-              AppConsts.catsRoute: (context) => const Placeholder(),
+              AppConsts.catsRoute: (context) => const CatsScreen(),
             }),
       ),
     );
