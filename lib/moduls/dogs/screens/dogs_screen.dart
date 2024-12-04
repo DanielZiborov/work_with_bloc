@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:work_with_bloc/core/consts/app_consts.dart';
 import 'package:work_with_bloc/moduls/dogs/bloc/dogs_bloc.dart';
 
 class DogsScreen extends StatelessWidget {
@@ -42,7 +43,16 @@ class DogsScreen extends StatelessWidget {
                     return const SizedBox();
                 }
               },
-            )
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  AppConsts.catsRoute,
+                );
+              },
+              icon: const Icon(Icons.arrow_right),
+            ),
           ],
         ),
       ),
