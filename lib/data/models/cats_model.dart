@@ -16,6 +16,14 @@ class CatsModel extends CatsEntity {
           height: json['height'],
         );
 
+  static List<CatsModel> fromJsonList(List<dynamic> jsonList) {
+    return jsonList.map((json) => CatsModel.fromJson(json)).toList();
+  }
+
+  static CatsModel fromJsonListOneObject(List<dynamic> jsonList) {
+    return fromJsonList(jsonList)[0];
+  }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;

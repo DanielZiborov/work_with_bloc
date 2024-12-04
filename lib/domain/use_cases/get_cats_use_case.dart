@@ -12,6 +12,6 @@ class GetCatsUseCase implements CatsRepository{
   @override
   Future<CatsEntity> getCatsImage() async {
     final response = await dio.get(AppConsts.catUrl);
-    return CatsModel.fromJson(response.data);
+    return CatsModel.fromJsonListOneObject(response.data);
   }
 }
