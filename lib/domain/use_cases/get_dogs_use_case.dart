@@ -8,6 +8,7 @@ class GetDogsUseCase implements DogsRepository {
   final Dio dio;
 
   GetDogsUseCase({required this.dio});
+  
   @override
   Future<DogsEntity> getDogsImage() async {
     final response = await dio.get(AppConsts.dogUrl);
